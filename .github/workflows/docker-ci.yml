@@ -44,6 +44,9 @@ jobs:
             - name: Start services
               run: docker compose up -d
 
+            - name: Install PHP dependencies
+              run: docker compose exec -T php composer install --no-interaction --no-progress
+
             - name: Wait for database (docker-compose service)
               run: |
                   until docker compose exec -T database pg_isready -d "$POSTGRES_DB" -U "$POSTGRES_USER"; do
