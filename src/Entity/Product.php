@@ -28,9 +28,9 @@ use Symfony\Component\Validator\Constraints as Assert;
         new Post(
             processor: ProductUserProcessor::class
         ),
-        new Put(security: "is_granted('ROLE_ADMIN') or object.getUser() == user"),
-        new Patch(security: "is_granted('ROLE_ADMIN') or object.getUser() == user"),
-        new Delete(security: "is_granted('ROLE_ADMIN') or object.getUser() == user")
+        new Put(security: "is_granted('ROLE_ADMIN') or object.getUser() === user"),
+        new Patch(security: "is_granted('ROLE_ADMIN') or object.getUser() === user"),
+        new Delete(security: "is_granted('ROLE_ADMIN') or object.getUser() === user")
     ],
     normalizationContext: ['groups' => ['read']],
     denormalizationContext: ['groups' => ['write']],
