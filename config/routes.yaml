@@ -10,5 +10,12 @@
 controllers:
     resource: routing.controllers
 
-api_login_check:
-    path: /api/login_check
+auth:
+    path: /api/auth
+    methods:
+        - POST
+
+api_platform:
+    resource: .
+    type: api_platform
+    prefix: /api
